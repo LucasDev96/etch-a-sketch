@@ -1,2 +1,3 @@
 3/1/21
+
 This is another project for The Odin Project that I'm beginning today. The goal of this project is to make something similar to an etch-a-sketch inside of a web browser. There will be a square container div, filled with and equal amount of rows and columns of equally sized square divs. The goal is to make it so when the cursor moves over a div, the color will change, sort of like you're drawing on an etch-a-sketch. Originally I'll probably only have it go to black, then will add functionality for random colors, and I'll also be making it possible to customize how many divs are available to color in. The range will probably be 10x10 to 100x100. I look forward to learning everything needed for this project.

@@ -1,0 +1,14 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid-container {
+    border: solid 2px black;
+    width: 500px;
+    height: 500px;
+}
