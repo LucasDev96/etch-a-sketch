@@ -29,8 +29,8 @@ function createSketchGrid(dimens) {
 }
 
 // set the background color of a box to the selectedColor
-function colorBackground(box) {
-    box.style.backgroundColor = selectedColor;
+function setBackgroundColor(box) {
+    box.style.backgroundColor = generateRandomColor();
 }
 
 // adds listeners to each box, applying colorBackground()
@@ -40,8 +40,17 @@ function setBoxListeners() {
 
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", (e) => {   
-            colorBackground(e.target);
+            setBackgroundColor(e.target);
         });
     });
 
+}
+
+// generates a random color and returns it as a string
+// to be used in setBackgroundColor()
+function generateRandomColor() {
+    // formula taken from https://css-tricks.com/snippets/javascript/random-hex-color/
+    let color ="#" + (Math.floor(Math.random() * 8**8).toString(16));
+
+    return color;
 }
