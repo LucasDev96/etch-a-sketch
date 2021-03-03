@@ -25,15 +25,16 @@ function createSketchGrid(dimens) {
 }
 
 function colorBackground(box) {
-    box.style.background = "black";
+    box.style.backgroundColor = "black";
 }
 
 function setBoxListeners() {
-    let boxes = document.querySelectorAll("flex-row-item");
+    let boxes = document.querySelectorAll(".flex-row-item");
 
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", (e) => {
-            colorBackground(this);
+            
+            colorBackground(e.target);
         });
     });
 }
