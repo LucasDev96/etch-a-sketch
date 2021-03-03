@@ -24,7 +24,6 @@ body {
 }
 
 .flex-row-item {
-    background: linear-gradient(#e66465, #9198e5);
     flex-grow: 1;
     border: solid 1px gray;
 }
