@@ -29,8 +29,8 @@ function createSketchGrid(dimens) {
 }
 
 // set the background color of a box to the selectedColor
-function colorBackground(selectedColor) {
-    box.style.backgroundColor = "black";
+function colorBackground(box) {
+    box.style.backgroundColor = selectedColor;
 }
 
 // adds listeners to each box, applying colorBackground()
