@@ -1,9 +1,12 @@
 let gridContainer = document.querySelector("#grid-container");
 
-let gridDimens = 12;
+let gridDimens = 50;
+let selectedColor = "black";
 
 createSketchGrid(gridDimens);
 
+// take in the selected dimensions, making a dimen x dimen grid
+// of boxes to be color using your mouse
 function createSketchGrid(dimens) {
     let row = document.createElement("div");
     row.className = "flex-row";
@@ -22,19 +25,23 @@ function createSketchGrid(dimens) {
     }
 
     setBoxListeners();
+
 }
 
-function colorBackground(box) {
+// set the background color of a box to the selectedColor
+function colorBackground(selectedColor) {
     box.style.backgroundColor = "black";
 }
 
+// adds listeners to each box, applying colorBackground()
+// when the event happens
 function setBoxListeners() {
     let boxes = document.querySelectorAll(".flex-row-item");
 
     boxes.forEach((box) => {
-        box.addEventListener("mouseenter", (e) => {
-            
+        box.addEventListener("mouseenter", (e) => {   
             colorBackground(e.target);
         });
     });
+
 }
