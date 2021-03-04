@@ -1,6 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    background-color: gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,11 +9,10 @@ body {
 }
 
 #grid-container {
-    border: solid 2px black;
-    width: 500px;
-    height: 500px;
+    width: 540px;
+    height: 540px;
     display: grid;
-    grid-auto-rows: 1fr;
+    background-color: white;
 }
 
 .flex-row {
@@ -21,9 +21,9 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: stretch;
+    align-items: stretch;
 }
 
 .flex-row-item {
     flex-grow: 1;
-    border: solid 1px gray;
 }
