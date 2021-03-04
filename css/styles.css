@@ -6,6 +6,7 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #mainContainer {
@@ -16,13 +17,13 @@ main {
 }
 
 .menuContainer {
-    width: 200px;
+    width: 300px;
     height: 540px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     background-color: gray;
-    margin-right: 200px;
+    margin-right: 100px;
 }
 
 .subMenuContainer {
