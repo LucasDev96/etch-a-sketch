@@ -1,10 +1,14 @@
 let gridContainer = document.querySelector("#grid-container");
 let slider = document.querySelector("#boxCountSlider")
+let boxCountText = document.querySelector(".boxCount");
 
 let gridDimens = slider.value;
 let selectedColor = "black";
 
+
 createSketchGrid(gridDimens);
+
+
 
 // take in the selected dimensions, making a dimen x dimen grid
 // of boxes to be color using your mouse
@@ -26,6 +30,7 @@ function createSketchGrid(dimens) {
     }
 
     setBoxListeners();
+    setGridSizeText();
 
 }
 
@@ -54,4 +59,9 @@ function generateRandomColor() {
     let color ="#" + (Math.floor(Math.random() * 8**8).toString(16));
 
     return color;
+}
+
+// sets the text to show the user the size of the grid
+function setGridSizeText() {
+    boxCountText.textContent = `Grid Size: ${gridDimens} x ${gridDimens}`;
 }
