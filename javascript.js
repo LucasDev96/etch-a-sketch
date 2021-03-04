@@ -8,7 +8,12 @@ let selectedColor = "black";
 
 createSketchGrid(gridDimens);
 
-
+// listener to detect when the slider is changing, and recreate
+// the grid when it does
+slider.addEventListener("input", (e) => {
+    gridDimens = slider.value;
+    createSketchGrid();
+});
 
 // take in the selected dimensions, making a dimen x dimen grid
 // of boxes to be color using your mouse
