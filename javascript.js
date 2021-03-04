@@ -1,4 +1,4 @@
-let gridContainer = document.querySelector("#grid-container");
+let gridContainer = document.querySelector("#gridContainer");
 let slider = document.querySelector("#boxCountSlider")
 let boxCountText = document.querySelector(".boxCount");
 
@@ -19,17 +19,17 @@ slider.addEventListener("input", (e) => {
 // of boxes to be color using your mouse
 function createSketchGrid() {
     // delete current rows before creating more if they exist
-    if(document.querySelector(".flex-row")) {
+    if(document.querySelector(".flexRow")) {
         while (gridContainer.firstChild) {
             gridContainer.removeChild(gridContainer.firstChild);
         }
     }
 
     let row = document.createElement("div");
-    row.className = "flex-row";
+    row.className = "flexRow";
 
     let box = document.createElement("div");
-    box.className = "flex-row-item";
+    box.className = "flexRowItem";
 
     // append boxes into the rows
     for (let i = 0; i < gridDimens; i++) {
@@ -54,7 +54,7 @@ function setBackgroundColor(box) {
 // adds listeners to each box, applying colorBackground()
 // when the event happens
 function setBoxListeners() {
-    let boxes = document.querySelectorAll(".flex-row-item");
+    let boxes = document.querySelectorAll(".flexRowItem");
 
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", (e) => {   
