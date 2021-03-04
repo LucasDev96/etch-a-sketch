@@ -8,6 +8,24 @@ main {
     align-items: center;
 }
 
+#mainContainer {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#menuContainer {
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#menuContainer button {
+    width: 120px;
+}
+
 #gridContainer {
     width: 540px;
     height: 540px;
