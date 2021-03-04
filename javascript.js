@@ -1,6 +1,7 @@
 let gridContainer = document.querySelector("#grid-container");
+let slider = document.querySelector("#boxCountSlider")
 
-let gridDimens = 50;
+let gridDimens = slider.value;
 let selectedColor = "black";
 
 createSketchGrid(gridDimens);
