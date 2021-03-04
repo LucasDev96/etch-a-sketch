@@ -6,7 +6,7 @@ let gridDimens = slider.value;
 let selectedColor = "black";
 
 
-createSketchGrid(gridDimens);
+createSketchGrid();
 
 // listener to detect when the slider is changing, and recreate
 // the grid when it does
@@ -17,7 +17,14 @@ slider.addEventListener("input", (e) => {
 
 // take in the selected dimensions, making a dimen x dimen grid
 // of boxes to be color using your mouse
-function createSketchGrid(dimens) {
+function createSketchGrid() {
+    // delete current rows before creating more if they exist
+    if(document.querySelector(".flex-row")) {
+        while (gridContainer.firstChild) {
+            gridContainer.removeChild(gridContainer.firstChild);
+        }
+    }
+
     let row = document.createElement("div");
     row.className = "flex-row";
 
@@ -25,12 +32,12 @@ function createSketchGrid(dimens) {
     box.className = "flex-row-item";
 
     // append boxes into the rows
-    for (let i = 0; i < dimens; i++) {
+    for (let i = 0; i < gridDimens; i++) {
         row.appendChild(box.cloneNode(true));
     }
 
     // append row to gridContainer dimens amount of times
-    for (let i = 0; i < dimens; i++) {
+    for (let i = 0; i < gridDimens; i++) {
         gridContainer.appendChild(row.cloneNode(true));
     }
 
