@@ -17,20 +17,42 @@
 
         <div id="mainContainer">
 
-            <div id="menuContainer">
-                <button>Black</button>
-                <button>Rainbow</button>
-                <button>Clear</button>
-                <button>Placeholder</button>
-            </div>
+            <div class="menuContainer">
 
+                <div id="paintStyleSelection" class="menuContainer">
+                    <h3>Paint Style</h3>
+                    <button>Mouse Over</button>
+                    <button>Click & Hold</button>
+                </div>
+
+                <div id="colorStyleSelection" class="menuContainer">
+                    <h3>Color Style</h3>
+                    <button>Black</button>
+                    <button>Rainbow</button>
+                    <button>Shader</button>
+                    <button>Pick Your Color</button>
+                    <button>Eraser</button>
+                </div>
+
+                <div id="backgroundSelection" class="menuContainer">
+                    <h3>Background Options</h3>
+                    <button>Toggle Gridlines</button>
+                    <button>Fill Background</button>
+                </div>
+
+                <div id="erasingStyleSelection" class="menuContainer">
+                    <h3>Let's Start Over</h3>
+                    <button>Clear Grid</button>
+                </div>
+                
+            </div>
 
             <div id="gridContainer">
                 <!-- js will fill this area -->
             </div>
         </div>
 
-        
+
 
         <div class="sliderContainer">
             <input type="range" id="boxCountSlider" class="slider" min="4" max="100" value="16">
