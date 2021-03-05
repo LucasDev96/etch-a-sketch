@@ -65,11 +65,7 @@ function setBackgroundColor(box) {
 function setBoxListeners() {
     let boxes = document.querySelectorAll(".flexRowItem");
 
-    boxes.forEach((box) => {
-        box.addEventListener("mouseenter", (e) => {   
-            setBackgroundColor(e.target);
-        });
-    });
+    setMouseOverListener(boxes);
 
 }
 
@@ -96,6 +92,8 @@ function setClickHoldListener(boxes) {
         });
     });
 }
+
+// function setMouseUpEvent(e)
 
 // generates a random color and returns it as a string
 // to be used in setBackgroundColor()
