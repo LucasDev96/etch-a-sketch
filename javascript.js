@@ -1,10 +1,13 @@
 let gridContainer = document.querySelector("#gridContainer");
+let paintStyleButtons = document.querySelectorAll("#paintStyleSelection button");
+let colorStyleButtons = document.querySelectorAll("#colorStyleSelection button");
+let backgroundSelectionButtons = document.querySelectorAll("#backgroundSelection button");
+let clearGridButton = document.querySelector("#clearGridSection button");
 let slider = document.querySelector("#boxCountSlider")
 let boxCountText = document.querySelector(".boxCount");
 
 let gridDimens = slider.value;
 let selectedColor = "black";
-
 
 createSketchGrid();
 
