@@ -73,6 +73,30 @@ function setBoxListeners() {
 
 }
 
+// set the listeners for each box for when "mouse over" is selected
+function setMouseOverListener(boxes) {
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", setMouseEnterEvent);
+    });
+}
+
+// sets event listeners for mouse enter event
+function setMouseEnterEvent(e) {
+    setBackgroundColor(e.target);
+}
+
+// add event listeners for each box for when "click & hold" is selected
+// will listen for a mouse down, then mouseenter until mouse up
+function setClickHoldListener(boxes) {
+    boxes.forEach((box) => {
+        box.addEventListener("mousedown", (e) => {
+            setBackgroundColor(e.target);
+
+
+        });
+    });
+}
+
 // generates a random color and returns it as a string
 // to be used in setBackgroundColor()
 function generateRandomColor() {
