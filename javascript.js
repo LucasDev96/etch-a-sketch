@@ -8,7 +8,7 @@ let boxCountText = document.querySelector(".boxCount");
 
 let gridDimens = slider.value;
 let selectedPaintStyle = getPaintStyleSelection();
-let selectedColor = getPaintStyleSelection();
+let selectedColor = getColorStyleSelection();
 
 createSketchGrid();
 
@@ -52,7 +52,12 @@ function createSketchGrid() {
 
 // set the background color of a box to the selectedColor
 function setBackgroundColor(box) {
-    box.style.backgroundColor = generateRandomColor();
+    if (selectedColor === "black") {
+        box.style.backgroundColor = "black";
+    } else if (selectedColor === "rainbow") {
+        box.style.backgroundColor = generateRandomColor();
+    }
+    
 }
 
 // adds listeners to each box, applying colorBackground()
@@ -85,13 +90,12 @@ function setGridSizeText() {
 // get the value of the currently selected value in paintStyleSelection
 function getPaintStyleSelection() {
     let selection = document.querySelector("#paintStyleSelection .selected");
-    return selection.textContent.toLowerCase;
+    return selection.textContent.toLowerCase();
 }
 
 // get the value of the current selection in colorStyleSelection
 function getColorStyleSelection() {
-    let selection = document.querySelector("colorStyleSelection .selected");
-    return selection.textContent.toLowerCase;
+    let selection = document.querySelector("#colorStyleSelection .selected");
+    return selection.textContent.toLowerCase();
 }
 
-paintStyleButtons.forEach(item => console.log(item.textContent));
