@@ -7,7 +7,8 @@ let slider = document.querySelector("#boxCountSlider")
 let boxCountText = document.querySelector(".boxCount");
 
 let gridDimens = slider.value;
-let selectedColor = "black";
+let selectedPaintStyle = getPaintStyleSelection();
+let selectedColor = getPaintStyleSelection();
 
 createSketchGrid();
 
@@ -80,3 +81,17 @@ function generateRandomColor() {
 function setGridSizeText() {
     boxCountText.textContent = `Grid Size: ${gridDimens} x ${gridDimens}`;
 }
+
+// get the value of the currently selected value in paintStyleSelection
+function getPaintStyleSelection() {
+    let selection = document.querySelector("#paintStyleSelection .selected");
+    return selection.textContent.toLowerCase;
+}
+
+// get the value of the current selection in colorStyleSelection
+function getColorStyleSelection() {
+    let selection = document.querySelector("colorStyleSelection .selected");
+    return selection.textContent.toLowerCase;
+}
+
+paintStyleButtons.forEach(item => console.log(item.textContent));
