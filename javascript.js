@@ -60,12 +60,16 @@ function setBackgroundColor(box) {
     
 }
 
-// adds listeners to each box, applying colorBackground()
-// when the event happens
+// adds listeners to each box, depending on which
+// style is selected
 function setBoxListeners() {
     let boxes = document.querySelectorAll(".flexRowItem");
 
-    setClickHoldListener(boxes);
+    if (selectedPaintStyle === "mouse over") {
+        setMouseOverListener(boxes);
+    } else if (selectedPaintStyle === "click & hold") {
+        setClickHoldListener(boxes);
+    }
 
 }
 
