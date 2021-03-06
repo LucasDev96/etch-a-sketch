@@ -19,6 +19,22 @@ slider.addEventListener("input", (e) => {
     createSketchGrid();
 });
 
+// listen for paint style buttons to be click and toggles the
+// selected class if it doesn't already have it.
+// sets new value for selectedPaintStyle and reapplies box listeners
+paintStyleButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        let currentSelected = document.querySelector(".selected");
+        currentSelected.classList.toggle("selected");
+        
+        let newSelected = e.target;
+        newSelected.classList.toggle("selected");
+
+        selectedPaintStyle = getPaintStyleSelection();
+        setBoxListeners();
+    });
+})
+
 // take in the selected dimensions, making a dimen x dimen grid
 // of boxes to be color using your mouse
 function createSketchGrid() {
@@ -64,6 +80,9 @@ function setBackgroundColor(box) {
 // style is selected
 function setBoxListeners() {
     let boxes = document.querySelectorAll(".flexRowItem");
+
+    // removes listeners in case one was already selected(for switching styles)
+    removeMouseOverListener(boxes);
 
     if (selectedPaintStyle === "mouse over") {
         setMouseOverListener(boxes);
