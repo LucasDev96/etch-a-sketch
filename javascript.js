@@ -90,6 +90,7 @@ function setClickHoldListener(boxes) {
 
             setMouseOverListener(boxes);
             setMouseUpEvent(boxes);
+            setGridMouseLeaveListener(boxes);
         });
     });
 }
@@ -98,15 +99,34 @@ function setClickHoldListener(boxes) {
 // click and drag drawing
 function setMouseUpEvent(boxes) {
     boxes.forEach((box) => {
-        box.addEventListener("mouseup", (e) => {
+        box.addEventListener("mouseup", () => {
             removeMouseOverListener(boxes);
         });
     });
 }
 
+// removes mouseenter event on all of the boxes, and
+// calls to remove the listener on the gridContainer
 function removeMouseOverListener(boxes) {
     boxes.forEach((box) => {
         box.removeEventListener("mouseenter", setMouseEnterEvent);
+    });
+    removeGridMouseLeaveListener(boxes);
+}
+
+// set listener on the grid for when click and drag draw is
+// enabled to prevent drawing if the click is still held
+// while leaving the whole container
+function setGridMouseLeaveListener(boxes) {
+    gridContainer.addEventListener("mouseleave", () => {
+        removeMouseOverListener(boxes);
+    });
+}
+
+// remove grid listener after click and drag is done
+function removeGridMouseLeaveListener(boxes) {
+    gridContainer.removeEventListener("mouseleave", () => {
+        removeMouseOverListener(boxes);
     });
 }
 
