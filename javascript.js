@@ -26,7 +26,7 @@ paintStyleButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         let currentSelected = document.querySelector(".selected");
         currentSelected.classList.toggle("selected");
-        
+
         let newSelected = e.target;
         newSelected.classList.toggle("selected");
 
@@ -39,7 +39,7 @@ paintStyleButtons.forEach((button) => {
 // of boxes to be color using your mouse
 function createSketchGrid() {
     // delete current rows before creating more if they exist
-    if(document.querySelector(".flexRow")) {
+    if (document.querySelector(".flexRow")) {
         while (gridContainer.firstChild) {
             gridContainer.removeChild(gridContainer.firstChild);
         }
@@ -73,7 +73,7 @@ function setBackgroundColor(box) {
     } else if (selectedColor === "rainbow") {
         box.style.backgroundColor = generateRandomColor();
     }
-    
+
 }
 
 // adds listeners to each box, depending on which
@@ -85,6 +85,7 @@ function setBoxListeners() {
     removeMouseOverListener(boxes);
     removeGridMouseLeaveListener();
     removeClickHoldListener(boxes);
+    removeMouseUpEvent(boxes);
 
     if (selectedPaintStyle === "mouse over") {
         setMouseOverListener(boxes);
@@ -136,11 +137,20 @@ function mouseDownEvents(e) {
 // click and drag drawing
 function setMouseUpEvent(boxes) {
     boxes.forEach((box) => {
-        box.addEventListener("mouseup", () => {
-            removeMouseOverListener(boxes);
-            removeGridMouseLeaveListener();
-        });
+        box.addEventListener("mouseup", mouseUpEvent);
     });
+}
+
+function removeMouseUpEvent(boxes) {
+    boxes.forEach((box) => {
+        box.removeEventListener("mouseup", mouseUpEvent);
+    })
+}
+
+function mouseUpEvent() {
+    let boxes = getBoxesVariable();
+    removeMouseOverListener(boxes);
+    removeGridMouseLeaveListener();
 }
 
 // removes mouseenter event on all of the boxes, and
@@ -149,7 +159,6 @@ function removeMouseOverListener(boxes) {
     boxes.forEach((box) => {
         box.removeEventListener("mouseenter", setMouseEnterEvent);
     });
-    removeGridMouseLeaveListener();
 }
 
 // set listener on the grid for when click and drag draw is
@@ -173,7 +182,7 @@ function mouseLeaveGridEvent(e) {
 // to be used in setBackgroundColor()
 function generateRandomColor() {
     // formula taken from https://css-tricks.com/snippets/javascript/random-hex-color/
-    let color ="#" + (Math.floor(Math.random() * 8**8).toString(16));
+    let color = "#" + (Math.floor(Math.random() * 8 ** 8).toString(16));
 
     return color;
 }
