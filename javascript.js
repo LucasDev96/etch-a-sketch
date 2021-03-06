@@ -83,6 +83,8 @@ function setBoxListeners() {
 
     // removes listeners in case one was already selected(for switching styles)
     removeMouseOverListener(boxes);
+    removeGridMouseLeaveListener(boxes);
+    removeClickHoldListener(boxes);
 
     if (selectedPaintStyle === "mouse over") {
         setMouseOverListener(boxes);
@@ -105,17 +107,29 @@ function setMouseEnterEvent(e) {
 }
 
 // add event listeners for each box for when "click & hold" is selected
-// will listen for a mouse down, then mouseenter until mouse up
+// will listen for a mouse down, then call to mouseDownEvents()
 function setClickHoldListener(boxes) {
     boxes.forEach((box) => {
-        box.addEventListener("mousedown", (e) => {
-            setBackgroundColor(e.target);
-
-            setMouseOverListener(boxes);
-            setMouseUpEvent(boxes);
-            setGridMouseLeaveListener(boxes);
-        });
+        box.addEventListener("mousedown", mouseDownEvents);
     });
+}
+
+function removeClickHoldListener(boxes) {
+    boxes.forEach((box) => {
+        box.removeEventListener("mousedown", mouseDownEvents);
+    });
+}
+
+// triggers all of the events to occur to start click and drag
+// drawing
+function mouseDownEvents(e) {
+    let boxes = document.querySelectorAll(".flexRowItem");
+
+    setBackgroundColor(e.target);
+
+    setMouseOverListener(boxes);
+    setMouseUpEvent(boxes);
+    setGridMouseLeaveListener(boxes);
 }
 
 // listens for mouse up event on each box to know when to cancel
@@ -124,6 +138,7 @@ function setMouseUpEvent(boxes) {
     boxes.forEach((box) => {
         box.addEventListener("mouseup", () => {
             removeMouseOverListener(boxes);
+            removeGridMouseLeaveListener(boxes);
         });
     });
 }
