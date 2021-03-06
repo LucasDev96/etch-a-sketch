@@ -83,7 +83,7 @@ function setBoxListeners() {
 
     // removes listeners in case one was already selected(for switching styles)
     removeMouseOverListener(boxes);
-    removeGridMouseLeaveListener(boxes);
+    removeGridMouseLeaveListener();
     removeClickHoldListener(boxes);
 
     if (selectedPaintStyle === "mouse over") {
@@ -129,7 +129,7 @@ function mouseDownEvents(e) {
 
     setMouseOverListener(boxes);
     setMouseUpEvent(boxes);
-    setGridMouseLeaveListener(boxes);
+    setGridMouseLeaveListener();
 }
 
 // listens for mouse up event on each box to know when to cancel
@@ -138,7 +138,7 @@ function setMouseUpEvent(boxes) {
     boxes.forEach((box) => {
         box.addEventListener("mouseup", () => {
             removeMouseOverListener(boxes);
-            removeGridMouseLeaveListener(boxes);
+            removeGridMouseLeaveListener();
         });
     });
 }
@@ -149,23 +149,24 @@ function removeMouseOverListener(boxes) {
     boxes.forEach((box) => {
         box.removeEventListener("mouseenter", setMouseEnterEvent);
     });
-    removeGridMouseLeaveListener(boxes);
+    removeGridMouseLeaveListener();
 }
 
 // set listener on the grid for when click and drag draw is
 // enabled to prevent drawing if the click is still held
 // while leaving the whole container
-function setGridMouseLeaveListener(boxes) {
-    gridContainer.addEventListener("mouseleave", () => {
-        removeMouseOverListener(boxes);
-    });
+function setGridMouseLeaveListener() {
+    gridContainer.addEventListener("mouseleave", mouseLeaveGridEvent);
 }
 
 // remove grid listener after click and drag is done
-function removeGridMouseLeaveListener(boxes) {
-    gridContainer.removeEventListener("mouseleave", () => {
-        removeMouseOverListener(boxes);
-    });
+function removeGridMouseLeaveListener() {
+    gridContainer.removeEventListener("mouseleave", mouseLeaveGridEvent);
+}
+
+function mouseLeaveGridEvent(e) {
+    let boxes = getBoxesVariable();
+    removeMouseOverListener(boxes);
 }
 
 // generates a random color and returns it as a string
