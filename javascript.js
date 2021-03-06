@@ -79,7 +79,7 @@ function setBackgroundColor(box) {
 // adds listeners to each box, depending on which
 // style is selected
 function setBoxListeners() {
-    let boxes = document.querySelectorAll(".flexRowItem");
+    let boxes = getBoxesVariable();
 
     // removes listeners in case one was already selected(for switching styles)
     removeMouseOverListener(boxes);
@@ -123,7 +123,7 @@ function removeClickHoldListener(boxes) {
 // triggers all of the events to occur to start click and drag
 // drawing
 function mouseDownEvents(e) {
-    let boxes = document.querySelectorAll(".flexRowItem");
+    let boxes = getBoxesVariable();
 
     setBackgroundColor(e.target);
 
@@ -180,6 +180,10 @@ function generateRandomColor() {
 // sets the text to show the user the size of the grid
 function setGridSizeText() {
     boxCountText.textContent = `Grid Size: ${gridDimens} x ${gridDimens}`;
+}
+
+function getBoxesVariable() {
+    return document.querySelectorAll(".flexRowItem");
 }
 
 // get the value of the currently selected value in paintStyleSelection
