@@ -65,7 +65,7 @@ function setBackgroundColor(box) {
 function setBoxListeners() {
     let boxes = document.querySelectorAll(".flexRowItem");
 
-    setMouseOverListener(boxes);
+    setClickHoldListener(boxes);
 
 }
 
@@ -88,12 +88,27 @@ function setClickHoldListener(boxes) {
         box.addEventListener("mousedown", (e) => {
             setBackgroundColor(e.target);
 
-
+            setMouseOverListener(boxes);
+            setMouseUpEvent(boxes);
         });
     });
 }
 
-// function setMouseUpEvent(e)
+// listens for mouse up event on each box to know when to cancel
+// click and drag drawing
+function setMouseUpEvent(boxes) {
+    boxes.forEach((box) => {
+        box.addEventListener("mouseup", (e) => {
+            removeMouseOverListener(boxes);
+        });
+    });
+}
+
+function removeMouseOverListener(boxes) {
+    boxes.forEach((box) => {
+        box.removeEventListener("mouseenter", setMouseEnterEvent);
+    });
+}
 
 // generates a random color and returns it as a string
 // to be used in setBackgroundColor()
