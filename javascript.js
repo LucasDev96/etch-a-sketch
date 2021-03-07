@@ -20,8 +20,6 @@ slider.addEventListener("input", (e) => {
     createSketchGrid();
 });
 
-// changes the selected
-
 // sets new value for selectedPaintStyle and reapplies box listeners
 paintStyleButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
