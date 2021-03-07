@@ -23,7 +23,7 @@ slider.addEventListener("input", (e) => {
 // sets new value for selectedPaintStyle and reapplies box listeners
 paintStyleButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-        let currentSelected = document.querySelector(".selected");
+        let currentSelected = document.querySelector("#paintStyleSelection .selected");
         currentSelected.classList.toggle("selected");
 
         let newSelected = e.target;
@@ -31,6 +31,19 @@ paintStyleButtons.forEach((button) => {
 
         selectedPaintStyle = getPaintStyleSelection();
         setBoxListeners();
+    });
+})
+
+// sets new value for selectedColorStyle
+colorStyleButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        let currentSelected = document.querySelector("#colorStyleSelection .selected");
+        currentSelected.classList.toggle("selected");
+
+        let newSelected = e.target;
+        newSelected.classList.toggle("selected");
+
+        selectedColorStyle = getColorStyleSelection();
     });
 })
 
