@@ -44,7 +44,7 @@ main {
     width: 540px;
     height: 540px;
     display: grid;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 .flexRow {
@@ -61,5 +61,6 @@ main {
     transition: 0.3s;
     -webkit-user-drag: none;
     user-select: none;
-    background-color: "#ffffff";
+    background-color: rgb(255, 255, 255);
+}
 }
