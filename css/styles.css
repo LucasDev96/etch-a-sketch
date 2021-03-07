@@ -61,5 +61,5 @@ main {
     transition: 0.3s;
     -webkit-user-drag: none;
     user-select: none;
-    background-color: white;
+    background-color: "#ffffff";
 }
