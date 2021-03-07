@@ -1,7 +1,8 @@
 let gridContainer = document.querySelector("#gridContainer");
 let paintStyleButtons = document.querySelectorAll("#paintStyleSelection button");
 let colorStyleButtons = document.querySelectorAll("#colorStyleSelection button");
-let backgroundSelectionButtons = document.querySelectorAll("#backgroundSelection button");
+let toggleGridlinesButton = document.querySelector("#toggleGridlines");
+let fillBackgroundButton = document.querySelector("#fillBackground");
 let colorPicker = document.querySelector("#colorPicker");
 let clearGridButton = document.querySelector("#clearGridSection button");
 let slider = document.querySelector("#boxCountSlider")
@@ -46,6 +47,10 @@ colorStyleButtons.forEach((button) => {
         selectedColorStyle = getColorStyleSelection();
     });
 })
+
+toggleGridlinesButton.addEventListener("click", toggleGridlines);
+
+fillBackgroundButton.addEventListener("click", fillBackground);
 
 // take in the selected dimensions, making a dimen x dimen grid
 // of boxes to be color using your mouse
@@ -252,3 +257,18 @@ function getColorStyleSelection() {
     return selection.textContent.toLowerCase();
 }
 
+function toggleGridlines() {
+    let boxes = getBoxesVariable();
+
+    boxes.forEach((box) => {
+        box.classList.toggle("boxBorder");
+    });
+}
+
+function fillBackground() {
+    let boxes = getBoxesVariable();
+
+    boxes.forEach((box) => {
+        setBackgroundColor(box);
+    });
+}
