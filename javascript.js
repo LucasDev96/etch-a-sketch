@@ -2,13 +2,14 @@ let gridContainer = document.querySelector("#gridContainer");
 let paintStyleButtons = document.querySelectorAll("#paintStyleSelection button");
 let colorStyleButtons = document.querySelectorAll("#colorStyleSelection button");
 let backgroundSelectionButtons = document.querySelectorAll("#backgroundSelection button");
+let colorPicker = document.querySelector("#colorPicker");
 let clearGridButton = document.querySelector("#clearGridSection button");
 let slider = document.querySelector("#boxCountSlider")
 let boxCountText = document.querySelector(".boxCount");
 
 let gridDimens = slider.value;
 let selectedPaintStyle = getPaintStyleSelection();
-let selectedColor = getColorStyleSelection();
+let selectedColorStyle = getColorStyleSelection();
 
 createSketchGrid();
 
@@ -18,6 +19,8 @@ slider.addEventListener("input", (e) => {
     gridDimens = slider.value;
     createSketchGrid();
 });
+
+// changes the selected
 
 // sets new value for selectedPaintStyle and reapplies box listeners
 paintStyleButtons.forEach((button) => {
@@ -66,12 +69,14 @@ function createSketchGrid() {
 
 // set the background color of a box to the selectedColor
 function setBackgroundColor(box) {
-    if (selectedColor === "black") {
+    if (selectedColorStyle === "black") {
         box.style.backgroundColor = "#000000";
-    } else if (selectedColor === "rainbow") {
+    } else if (selectedColorStyle === "rainbow") {
         box.style.backgroundColor = generateRandomColor();
-    } else if (selectedColor === "shader") {
+    } else if (selectedColorStyle === "shader") {
         box.style.backgroundColor = darkenColor(box);
+    } else if (selectedColorStyle === "pick your color") {
+        box.style.backgroundColor = colorPicker.value;
     }
 
 }
