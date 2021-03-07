@@ -68,13 +68,15 @@ function createSketchGrid() {
 // set the background color of a box to the selectedColor
 function setBackgroundColor(box) {
     if (selectedColorStyle === "black") {
-        box.style.backgroundColor = "#000000";
+        box.style.backgroundColor = "rgb(0, 0, 0)";
     } else if (selectedColorStyle === "rainbow") {
         box.style.backgroundColor = generateRandomColor();
     } else if (selectedColorStyle === "shader") {
         box.style.backgroundColor = darkenColor(box);
     } else if (selectedColorStyle === "pick your color") {
         box.style.backgroundColor = colorPicker.value;
+    } else if (selectedColorStyle === "eraser") {
+        box.style.backgroundColor = "rgb(255, 255, 255)";
     }
 
 }
