@@ -71,7 +71,7 @@ function setBackgroundColor(box) {
     } else if (selectedColor === "rainbow") {
         box.style.backgroundColor = generateRandomColor();
     } else if (selectedColor === "shader") {
-        box.style.backgroundColor = shadeColor(box.style.backgroundColor, -10);
+        
     }
 
 }
@@ -192,6 +192,12 @@ function generateRandomColor() {
 
 function generateRandomRGBValue() {
     return Math.floor(Math.random() * 256);
+}
+
+// parse through an rgb string and return an array of the values
+function parseRGBString(rgbString) {
+    let match = /\d+/g;
+    return rgbString.match(match);
 }
 
 // sets the text to show the user the size of the grid
