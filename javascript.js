@@ -181,10 +181,17 @@ function mouseLeaveGridEvent(e) {
 // generates a random color and returns it as a string
 // to be used in setBackgroundColor()
 function generateRandomColor() {
-    // formula taken from https://css-tricks.com/snippets/javascript/random-hex-color/
-    let color = "#" + (Math.floor(Math.random() * 8 ** 8).toString(16));
+    let r = generateRandomRGBValue();
+    let g = generateRandomRGBValue();
+    let b = generateRandomRGBValue();
+    
+    let color = `rgb(${r}, ${g}, ${b})`;
 
     return color;
+}
+
+function generateRandomRGBValue() {
+    return Math.floor(Math.random() * 256);
 }
 
 // sets the text to show the user the size of the grid
