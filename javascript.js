@@ -71,7 +71,7 @@ function setBackgroundColor(box) {
     } else if (selectedColor === "rainbow") {
         box.style.backgroundColor = generateRandomColor();
     } else if (selectedColor === "shader") {
-        
+        box.style.backgroundColor = darkenColor(box);
     }
 
 }
@@ -194,7 +194,20 @@ function generateRandomRGBValue() {
     return Math.floor(Math.random() * 256);
 }
 
-// parse through an rgb string and return an array of the values
+function darkenColor(box) {
+    let colors = parseRGBString(getComputedStyle(box).backgroundColor);
+    let R = colors[0] - 26;
+    let G = colors[1] - 26;
+    let B = colors [2] - 26;
+
+    if (R < 0) R = 0;
+    if (G < 0) G = 0;
+    if (B < 0) B = 0;
+
+    return `rgb(${R}, ${G}, ${B})`;
+}
+
+// parse through an rgb string using a RegExp and return an array of the values
 function parseRGBString(rgbString) {
     let match = /\d+/g;
     return rgbString.match(match);
