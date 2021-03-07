@@ -49,6 +49,9 @@ colorStyleButtons.forEach((button) => {
 })
 
 toggleGridlinesButton.addEventListener("click", toggleGridlines);
+toggleGridlinesButton.addEventListener("click", (e) => {
+    e.target.classList.toggle("selected");
+});
 
 fillBackgroundButton.addEventListener("click", fillBackground);
 
@@ -80,6 +83,11 @@ function createSketchGrid() {
 
     setBoxListeners();
     setGridSizeText();
+
+    // fill in gridlines if the option was already toggled on
+    if (toggleGridlinesButton.classList.contains("selected")) {
+        toggleGridlines();
+    }
 
 }
 
@@ -257,14 +265,18 @@ function getColorStyleSelection() {
     return selection.textContent.toLowerCase();
 }
 
+// toggles the boxBorder class on every box
 function toggleGridlines() {
     let boxes = getBoxesVariable();
 
     boxes.forEach((box) => {
         box.classList.toggle("boxBorder");
     });
+
+    
 }
 
+// fills each box with whatever the currently selected color style is
 function fillBackground() {
     let boxes = getBoxesVariable();
 
