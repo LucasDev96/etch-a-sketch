@@ -55,6 +55,8 @@ toggleGridlinesButton.addEventListener("click", (e) => {
 
 fillBackgroundButton.addEventListener("click", fillBackground);
 
+clearGridButton.addEventListener("click", clearGrid);
+
 // take in the selected dimensions, making a dimen x dimen grid
 // of boxes to be color using your mouse
 function createSketchGrid() {
@@ -273,7 +275,6 @@ function toggleGridlines() {
         box.classList.toggle("boxBorder");
     });
 
-    
 }
 
 // fills each box with whatever the currently selected color style is
@@ -282,5 +283,13 @@ function fillBackground() {
 
     boxes.forEach((box) => {
         setBackgroundColor(box);
+    });
+}
+
+function clearGrid() {
+    let boxes = getBoxesVariable();
+
+    boxes.forEach((box) => {
+        box.style.backgroundColor = "rgb(255, 255, 255)";
     });
 }
