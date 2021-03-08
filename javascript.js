@@ -284,6 +284,8 @@ function fillBackground() {
     boxes.forEach((box) => {
         setBackgroundColor(box);
     });
+
+    toggleSelected(fillBackgroundButton);
 }
 
 function clearGrid() {
@@ -292,4 +294,12 @@ function clearGrid() {
     boxes.forEach((box) => {
         box.style.backgroundColor = "rgb(255, 255, 255)";
     });
+
+    toggleSelected(clearGridButton);
+    
+}
+
+function toggleSelected(element) {
+    setTimeout(() => element.classList.toggle("selected"), 200);
+    element.classList.toggle("selected");
 }
