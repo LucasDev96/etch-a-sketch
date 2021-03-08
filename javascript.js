@@ -299,6 +299,7 @@ function clearGrid() {
     
 }
 
+// quick toggle for the selected class to give a tiny color switch animation
 function toggleSelected(element) {
     setTimeout(() => element.classList.toggle("selected"), 200);
     element.classList.toggle("selected");
