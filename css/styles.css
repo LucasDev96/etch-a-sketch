@@ -58,6 +58,23 @@ button {
   box-shadow: 3px 3px black, 5px 5px white;
   padding-right: 5%;
   margin-top: 10px;
+  transition: 0.2s;
+}
+
+button:hover {
+  color: white;
+  background: blue;
+  box-shadow: 3px 3px white, 5px 5px black;
+}
+
+button.selected {
+  color: white;
+  background: red;
+  box-shadow: 3px 3px white, 5px 5px black;
+}
+
+button:focus {
+  outline: 0;
 }
 
 .flexRow {
