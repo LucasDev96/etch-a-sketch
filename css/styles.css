@@ -67,6 +67,16 @@ main {
     border: 1px solid lightgray;
 }
 
+.sliderContainer {
+    width: 500px;
+}
+
+.boxCount {
+    margin-top: 18px;
+    width: 100%;
+    text-align: center;
+}
+
 
 /* Stylings for the slider from https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 
