@@ -95,9 +95,10 @@ input[type="color"]::-webkit-color-swatch {
   box-sizing: border-box;
   user-select: none;
   border: 3px solid black;
+  box-shadow: 3px 3px #ff00ff, 5px 5px black;
   border-radius: 0;
   margin-top: 15px;
-  margin-left: -8px;
+  margin-left: -6px;
 }
 
 #colorPicker:focus {
@@ -105,8 +106,12 @@ input[type="color"]::-webkit-color-swatch {
   outline: none;
 }
 
+.colorPickerContainer {
+  width: 200px;
+}
+
 .colorPickerContainer button {
-  width: 180px;
+  width: 165px;
   padding: 0.375rem 0;
 }
 
