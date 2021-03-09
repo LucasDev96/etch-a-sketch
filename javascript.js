@@ -48,6 +48,8 @@ colorStyleButtons.forEach((button) => {
     });
 })
 
+colorPicker.addEventListener("input", setColorPickerBackground);
+
 toggleGridlinesButton.addEventListener("click", toggleGridlines);
 toggleGridlinesButton.addEventListener("click", (e) => {
     e.target.classList.toggle("selected");
@@ -276,6 +278,14 @@ function toggleGridlines() {
     });
 
 }
+
+// change the background and box shadow color of the color picker
+// as it changes
+function setColorPickerBackground(e) {
+    let color = e.target.value;
+    colorPicker.style.background = color;
+    colorPicker.style.boxShadow = `3px 3px ${color}, 5px 5px black`
+} 
 
 // fills each box with whatever the currently selected color style is
 function fillBackground() {
