@@ -24,6 +24,7 @@ h1 {
     width: 300px;
     height: 600px;
     display: flex;
+    border-radius: 4px;
     flex-direction: column;
     justify-content: flex-start;
     background-color: gray;
