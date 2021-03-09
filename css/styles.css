@@ -77,6 +77,39 @@ button:focus {
   outline: 0;
 }
 
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  user-select: none;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-color: transparent;
+  user-select: none;
+}
+
+#colorPicker {
+  width: 25px;
+  height: 25px;
+  background: #ff00ff;
+  vertical-align: middle;
+  box-sizing: border-box;
+  user-select: none;
+  border: 3px solid black;
+  border-radius: 0;
+  margin-top: 15px;
+  margin-left: -8px;
+}
+
+#colorPicker:focus {
+  user-select: none;
+  outline: none;
+}
+
+.colorPickerContainer button {
+  width: 180px;
+  padding: 0.375rem 0;
+}
+
 .flexRow {
     width: 100%;
     height: 100%;
