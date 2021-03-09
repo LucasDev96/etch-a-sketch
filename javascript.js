@@ -14,6 +14,10 @@ let selectedColorStyle = getColorStyleSelection();
 
 createSketchGrid();
 
+// fixes firefox bug that would remember the color from colorPicker
+// if you refreshed the page
+colorPicker.value = "#8d049f";
+
 // listener to detect when the slider is changing, and recreate
 // the grid when it does
 slider.addEventListener("input", (e) => {
